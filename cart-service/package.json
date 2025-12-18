@@ -1,7 +1,7 @@
 {
   "name": "cart-service",
   "version": "1.0.0",
-  "description": "Cart Service - Step 1 Basic Pricing",
+  "description": "Cart Service for Online Fruit Order Application",
   "main": "app.js",
   "scripts": {
     "test": "jest"
