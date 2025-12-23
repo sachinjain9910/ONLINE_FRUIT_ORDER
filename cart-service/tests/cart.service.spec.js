@@ -1,6 +1,6 @@
 describe('Cart Service - Step 1 Basic Pricing', () => {
 
-  const calculateCartTotal = require('../src/cart.service');
+const  calculateCartTotal  = require('../src/cart.service');
 
   test('should return Rs.10 when 1 apple is added to cart', () => {
     const cartItems = [
