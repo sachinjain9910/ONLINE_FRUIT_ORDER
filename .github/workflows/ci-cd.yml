@@ -34,10 +34,24 @@ jobs:
           cd ${{ matrix.service }}
           npm install
 
-      - name: Run tests
+      - name: Run Tests with detailed logs
         run: |
           cd ${{ matrix.service }}
-          npm test
+          npm test -- --verbose || exit 1
+
+      - name: Generate Test Report (JUnit)
+        working-directory: ${{ matrix.service }}
+        run: |
+          npm install --save-dev jest-junit
+          npx jest --ci --reporters=default --reporters=jest-junit
+        if: always()
+
+      - name: Upload Test Reports
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: junit-results-${{ matrix.service }}
+          path: ${{ matrix.service }}/junit.xml
 
   static_analysis:
     name: 🧹 ESLint

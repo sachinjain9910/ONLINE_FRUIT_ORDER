@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --verbose",
     "lint": "eslint .",
     "audit": "npm audit --audit-level=high",
     "start": "node src/index.js"
